@@ -1,0 +1,28 @@
+* {
+    font-size: 20px;
+    margin: 0;
+}
+
+img {
+    margin: 20px;
+    min-width: 100px;
+}
+
+h2{
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.habilidad-item {
+    margin: 15px;
+    width: 30%;
+    min-width: 150px;
+}
+
+.span_habilidad_item {
+    display: block;
+}
+
+ul {
+    padding: 0;
+}

@@ -1,16 +1,15 @@
-<nav class="navbar navbar-expand-md bg-light mx-0 sticky-top">
+<nav class="navbar navbar-expand-md mx-0 sticky-top">
   <div class="container-fluid d-flex">
     <a class="navbar-brand has-logo" href="#">
       <img
         class=""
         src="//argentinaprograma.inti.gob.ar/pluginfile.php/1/theme_moove/logo/1659143423/APLogo-20-20.png"
-        width="150"
-        heigth="60"
+        width="130"
         alt="argpprod"
       />
     </a>
     <button
-      class="navbar-toggler mx-3"
+      class="navbar-toggler mx-3 mi-icon"
       type="button"
       data-bs-toggle="collapse"
       data-bs-target="#navbarSupportedContent"
@@ -18,7 +17,7 @@
       aria-expanded="false"
       aria-label="Toggle navigation"
     >
-      <span class="navbar-toggler-icon"></span>
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="40px" height="2rem" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="none" stroke="white" stroke-linecap="round" stroke-width="2" d="M5 6h14M5 12h14M5 18h14"/></svg>
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
       <ul class="navbar-nav d-flex justify-content-center">
@@ -41,9 +40,11 @@
           </a>
         </li>
         <li class="d-flex nav-item justify-content-end">
-          <button class="btn nav-span" type="submit">Login</button>
+          <button id="login" class="btn nav-span" type="submit" (click)="login()" *ngIf="!isLogged" >Login</button>
+          <button id="logout" class="btn nav-span" type="submit" (click)="logOut()" *ngIf="isLogged">Logout</button>
         </li>
       </ul>
     </div>
   </div>
 </nav>
+<app-banner></app-banner>

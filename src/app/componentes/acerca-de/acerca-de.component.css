@@ -7,7 +7,7 @@
     position: relative;
     margin-left: 40px;
     margin-right: 40px;
-    top: -50px;
+    top: -100px;
     
 }
 .background {
@@ -24,4 +24,5 @@ h2 {
 
 p {
     line-height: 23px;
+    max-width: 400px;
 }
