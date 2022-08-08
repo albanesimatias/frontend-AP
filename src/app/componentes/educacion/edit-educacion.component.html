@@ -1,0 +1,21 @@
+<div class="d-flex justify-content-center form-container">
+    <form class="myform" (ngSubmit)="onUpdate()" novalidate #f="ngForm" action="">
+        <div class="form-group">
+            <label for="institucion">Institucion</label>
+            <input type="text" class="form-control" id="institucion" name="institucion" [(ngModel)]="educacion.institucion" required>
+        </div>
+        <div class="form-group">
+            <label for="titulo">Titulo</label>
+            <input type="text" class="form-control" id="titulo" name="titulo" [(ngModel)]="educacion.titulo" required>
+        </div>
+        <div class="form-group">
+            <label for="descripcion">Descripcion</label>
+            <input type="text" class="form-control" id="descripcion" name="descripcion" [(ngModel)]="educacion.descripcion" required>
+        </div>
+        <div class="form-group">
+            <label for="ruta">Ruta</label>
+            <input type="text" class="form-control" id="ruta" name="ruta" [(ngModel)]="educacion.ruta" required>
+        </div>
+        <button class="btn btn-primary">Actualizar educacion</button>
+    </form>
+</div>

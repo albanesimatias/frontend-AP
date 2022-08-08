@@ -24,6 +24,21 @@ app-foto-perfil {
     background-repeat: repeat;
 }
 
+.btn-option {
+    position: absolute;
+    right: -65px;
+}
+
+.add-button, .del-button, .edit-button {
+    border: none;
+    position: relative;
+    top: -5px;
+}
+
+.add-button:hover, .del-button:hover, .edit-button:hover{
+    transform: scale(1.3);
+}
+
 @media (max-width: 766px){
     .banner{
         width: 85%;

@@ -14,6 +14,11 @@ import { LoginComponent } from './componentes/login/login.component';
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { interceptorProvider } from './service/interceptor.service';
+import { AddEducacionComponent } from './componentes/educacion/add-educacion.component';
+import { EditEducacionComponent } from './componentes/educacion/edit-educacion.component';
+import { NgCircleProgressModule } from 'ng-circle-progress';
+import { AddHabilidadComponent } from './componentes/habilidades/add-habilidad.component';
+import { EditHabilidadComponent } from './componentes/habilidades/edit-habilidad.component';
 
 @NgModule({
   declarations: [
@@ -27,12 +32,17 @@ import { interceptorProvider } from './service/interceptor.service';
     ProyectosComponent,
     HomeComponent,
     LoginComponent,
+    AddEducacionComponent,
+    EditEducacionComponent,
+    AddHabilidadComponent,
+    EditHabilidadComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    NgCircleProgressModule.forRoot({}),
   ],
   providers: [
     interceptorProvider

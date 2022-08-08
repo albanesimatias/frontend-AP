@@ -12,10 +12,10 @@ export class EducacionService {
   public lista(): Observable<Educacion[]>{
       return this.httpClient.get<Educacion[]>(this.eduURL+'listar');
   }
- /*
+ 
   public detail(id:number): Observable<Educacion>{
     return this.httpClient.get<Educacion>(this.eduURL+ `detail/${id}`);
-  }*/
+  }
 
   public save(educacion: Educacion): Observable<any>{
     return this.httpClient.post<any>(this.eduURL+"crear",educacion);

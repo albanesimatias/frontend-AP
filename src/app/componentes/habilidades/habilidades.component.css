@@ -14,6 +14,7 @@ h2{
 }
 
 .habilidad-item {
+    position:relative;
     margin: 15px;
     width: 28%;
     min-width: 150px;
@@ -25,4 +26,9 @@ h2{
 
 ul {
     padding: 0;
+}
+
+.btn-option {
+    position: absolute;
+    left: 90px;
 }
