@@ -1,16 +1,6 @@
-* {
-    font-size: 20px;
-    margin: 0;
-}
-
 img {
     margin-right: 20px;
     min-width: 100px;
-}
-
-h2{
-    font-size: 30px;
-    margin-bottom: 10px;
 }
 
 ul {
@@ -23,6 +13,18 @@ ul {
     position: relative;
 }
 
-p {
-    line-height: 23px;
+.btn-option {
+    position: relative;
+    width: 30px;
+    left: 10px;
+}
+
+@media (max-width: 480px){
+    .edu-item{
+        flex-direction: column !important;
+    }
+
+    .btn-option{
+        flex-direction: row !important;
+    }
 }

@@ -1,33 +1,38 @@
-<div class="d-flex justify-content-center background-texture">
+<div class="d-flex justify-content-center">
     <div id="proyecto">
-        <h2>Proyectos</h2>
+        <div class="d-flex flex-row justify-items-center">
+            <h2 class="titulo">Proyectos</h2>
+            <button class="btn add-button" (click)="open_modal_addProyecto()" *ngIf="isLogged">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+                </svg>
+            </button>
+        </div>
         <ul class="d-flex justify-content-center align-items-center flex-wrap">
-            <li class="d-flex flex-column align-items-center proyect-item tarjeta-wrap">
+            <li class="d-flex flex-column align-items-center proyect-item tarjeta-wrap" *ngFor="let proyecto of proyectos">
                 <div class="tarjeta">
                     <div class="cara d-flex flex-column align-items-center">
-                        <img src="../../../assets/proyectos-img/anotherchat.png" width="250" height="250" alt="">
-                        <span class="span_proyect_item">Another Chat</span>
+                        <img [src]="proyecto.imagen" width="250" height="250" alt="">
+                        <span class="span_proyect_item">{{proyecto.nombre}}</span>
                     </div>
                     <div class="dorso d-flex justify-content-center align-items-center">
-                        <a href="" class="git-link d-flex flex-column align-items-center">
+                        <a [href]="proyecto.githublink" target="_blank" class="git-link d-flex flex-column align-items-center">
                             <svg _ngcontent-ffd-c17="" xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 512 499.36" role="img" class="navbar-nav-svg"><title _ngcontent-ffd-c17="">GitHub</title><path _ngcontent-ffd-c17="" fill="currentColor" fill-rule="evenodd" d="M256 0C114.64 0 0 114.61 0 256c0 113.09 73.34 209 175.08 242.9 12.8 2.35 17.47-5.56 17.47-12.34 0-6.08-.22-22.18-.35-43.54-71.2 15.49-86.2-34.34-86.2-34.34-11.64-29.57-28.42-37.45-28.42-37.45-23.27-15.84 1.73-15.55 1.73-15.55 25.69 1.81 39.21 26.38 39.21 26.38 22.84 39.12 59.92 27.82 74.5 21.27 2.33-16.54 8.94-27.82 16.25-34.22-56.84-6.43-116.6-28.43-116.6-126.49 0-27.95 10-50.8 26.35-68.69-2.63-6.48-11.42-32.5 2.51-67.75 0 0 21.49-6.88 70.4 26.24a242.65 242.65 0 0 1 128.18 0c48.87-33.13 70.33-26.24 70.33-26.24 14 35.25 5.18 61.27 2.55 67.75 16.41 17.9 26.31 40.75 26.31 68.69 0 98.35-59.85 120-116.88 126.32 9.19 7.9 17.38 23.53 17.38 47.41 0 34.22-.31 61.83-.31 70.23 0 6.85 4.61 14.81 17.6 12.31C438.72 464.97 512 369.08 512 256.02 512 114.62 397.37 0 256 0z"></path></svg>
                             <span>Github</span>
                         </a>
                     </div>
                 </div>
-            </li>
-            <li class="d-flex flex-column align-items-center proyect-item tarjeta-wrap">
-                <div class="tarjeta">
-                    <div class="cara d-flex flex-column align-items-center">
-                        <img src="../../../assets/proyectos-img/muRoomy.png" width="250" height="250" alt="">
-                        <span class="span_proyect_item">Mu Roomy</span>
-                    </div>
-                    <div class="dorso d-flex justify-content-center align-items-center">
-                        <a href="" class="git-link d-flex flex-column align-items-center">
-                            <svg _ngcontent-ffd-c17="" xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 512 499.36" role="img" class="navbar-nav-svg"><title _ngcontent-ffd-c17="">GitHub</title><path _ngcontent-ffd-c17="" fill="currentColor" fill-rule="evenodd" d="M256 0C114.64 0 0 114.61 0 256c0 113.09 73.34 209 175.08 242.9 12.8 2.35 17.47-5.56 17.47-12.34 0-6.08-.22-22.18-.35-43.54-71.2 15.49-86.2-34.34-86.2-34.34-11.64-29.57-28.42-37.45-28.42-37.45-23.27-15.84 1.73-15.55 1.73-15.55 25.69 1.81 39.21 26.38 39.21 26.38 22.84 39.12 59.92 27.82 74.5 21.27 2.33-16.54 8.94-27.82 16.25-34.22-56.84-6.43-116.6-28.43-116.6-126.49 0-27.95 10-50.8 26.35-68.69-2.63-6.48-11.42-32.5 2.51-67.75 0 0 21.49-6.88 70.4 26.24a242.65 242.65 0 0 1 128.18 0c48.87-33.13 70.33-26.24 70.33-26.24 14 35.25 5.18 61.27 2.55 67.75 16.41 17.9 26.31 40.75 26.31 68.69 0 98.35-59.85 120-116.88 126.32 9.19 7.9 17.38 23.53 17.38 47.41 0 34.22-.31 61.83-.31 70.23 0 6.85 4.61 14.81 17.6 12.31C438.72 464.97 512 369.08 512 256.02 512 114.62 397.37 0 256 0z"></path></svg>
-                            <span>Github</span>
-                        </a>
-                    </div>
+                <div class="btn-option d-flex flex-column" *ngIf="isLogged">
+                    <button class="btn edit-button" (click)="open_modal_editProyecto(proyecto.id)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
+                            <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
+                        </svg>
+                    </button>
+                    <button class="btn del-button" (click)="delete(proyecto.id)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
+                            <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"/>
+                        </svg>
+                    </button>
                 </div>
             </li>
         </ul>

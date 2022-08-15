@@ -2,13 +2,13 @@ import { NodeCompatibleEventEmitter } from "rxjs/internal/observable/fromEvent";
 
 export class Habilidad {
     id?: number;
-    nombre?: string;
-    porcentaje?: number;
-    ruta?: string;
+    nombre: string;
+    porcentaje: number;
+    imagen: string;
 
-    constructor(nombre: string, porcentaje: number, ruta: string){
+    constructor(nombre: string, porcentaje: number, imagen: string){
         this.nombre = nombre;
         this.porcentaje = porcentaje;
-        this.ruta = ruta;
+        this.imagen = imagen;
     }
 }

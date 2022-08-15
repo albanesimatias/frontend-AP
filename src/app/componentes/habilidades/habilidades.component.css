@@ -1,16 +1,6 @@
-* {
-    font-size: 20px;
-    margin: 0;
-}
-
 img {
     margin: 20px;
     min-width: 100px;
-}
-
-h2{
-    font-size: 30px;
-    margin-bottom: 10px;
 }
 
 .habilidad-item {
@@ -20,15 +10,12 @@ h2{
     min-width: 150px;
 }
 
-.span_habilidad_item {
-    display: block;
-}
-
 ul {
     padding: 0;
 }
 
 .btn-option {
     position: absolute;
-    left: 90px;
+    right: -8px;
+    float: right;
 }

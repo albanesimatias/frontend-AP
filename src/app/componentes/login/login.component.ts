@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { LoginUsuario } from 'src/app/model/login-usuario';
 import { AuthService } from 'src/app/service/auth.service';
@@ -17,7 +18,7 @@ export class LoginComponent implements OnInit {
   password!: string;
   roles: string[] = [];
   errMsj!: string;
-  constructor(private tokenService: TokenService, private authService: AuthService, private router: Router) { }
+  constructor(private tokenService: TokenService, private authService: AuthService, public dialogRef: MatDialogRef<LoginComponent>) { }
 
   ngOnInit(): void {
     if(this.tokenService.getToken()){
@@ -28,6 +29,7 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin(): void {
+    let mensaje = document.getElementById("mensaje-error") as HTMLElement;
     this.loginUsuario = new LoginUsuario(this.nombreUsuario, this.password);
     this.authService.login(this.loginUsuario).subscribe(data => {
       this.isLogged = true;
@@ -36,13 +38,10 @@ export class LoginComponent implements OnInit {
       this.tokenService.setUsername(data.nombreUsuario);
       this.tokenService.setAuthorities(data.authorities);
       this.roles = data.authorities;
-      this.router.navigate([""]);
-    }, err=>{
-      this.isLogged = false;
-      this.isLogginFail = true;
-      this.errMsj = err.console.error.mensaje;
-      console.log(this.errMsj);
-      
+      window.location.reload();
     })
+    if(!this.isLogged){
+      mensaje.removeAttribute("hidden");
+    }
   }
 }

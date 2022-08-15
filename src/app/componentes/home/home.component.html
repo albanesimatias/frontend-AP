@@ -1,5 +1,5 @@
 <app-header></app-header>
-<app-acerca-de></app-acerca-de>
-<app-educacion></app-educacion>
-<app-habilidades></app-habilidades>
-<app-proyectos></app-proyectos>
+<app-acerca-de *appRecarga="homeService.recargaPerfil"></app-acerca-de>
+<app-educacion *appRecarga="homeService.recargaEducacion"></app-educacion>
+<app-habilidades *appRecarga="homeService.recargaHabilidad"></app-habilidades>
+<app-proyectos *appRecarga="homeService.recargaProyecto"></app-proyectos>

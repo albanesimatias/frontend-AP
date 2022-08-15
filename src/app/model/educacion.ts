@@ -3,13 +3,13 @@ export class Educacion {
     institucion: string;
     titulo: string;
     descripcion: string;
-    ruta: string;
+    imagen: string;
 
-    constructor(institucion: string, titulo: string, descripcion: string, ruta: string){
+    constructor(institucion: string, titulo: string, descripcion: string, imagen: string){
         this.institucion = institucion;
         this.titulo = titulo;
         this.descripcion = descripcion;
-        this.ruta = ruta;
+        this.imagen = imagen;
     }
 
 }

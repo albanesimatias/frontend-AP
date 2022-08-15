@@ -11,14 +11,8 @@ img {
     background-color: #000;
 }
 
-
-h2{
-    font-size: 30px;
-    margin-bottom: 40px;
-}
-
 .proyect-item {
-    margin: 15px;
+    margin: 30px;
     width: 30%;
     min-width: 260px;
     max-width: 260px;
@@ -50,6 +44,7 @@ ul {
 .tarjeta-wrap {
     -webkit-perspective: 800;
     perspective: 800;
+    position: relative;
 }
 .cara, .dorso {
     width: 100%;
@@ -79,4 +74,9 @@ ul {
 .git-link:hover {
     transform: scale(1.1);
     color: #f64;
+}
+
+.btn-option {
+    position: absolute;
+    left: 260px;
 }

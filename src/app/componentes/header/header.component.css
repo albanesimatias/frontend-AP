@@ -5,8 +5,8 @@
 .navbar {
     margin: 0;
     padding: 0;
-    background: rgb(255,153,204);
-    background: linear-gradient(90deg, rgba(255,153,204,0.93) 0%, rgba(255,185,85,0.93) 49%, rgba(255,102,102,0.93) 76%);
+    background: rgb(105,165,255);
+    background: linear-gradient(90deg, rgba(105,165,255,0.93) 0%, rgba(32,122,255,0.93) 37%, rgba(13,110,253,0.93) 100%);
     box-shadow: 0 1px 1px #111;
 }
 
