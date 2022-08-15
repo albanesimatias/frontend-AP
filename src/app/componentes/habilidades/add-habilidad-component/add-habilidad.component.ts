@@ -28,8 +28,7 @@ export class AddHabilidadComponent implements OnInit {
         this.homeService.recargarHabilidades();
         this.dialogRef.close();
       }, err => {
-        console.log("fallo");
-        console.log(err);
+        alert("Asegurese de completar los campos");
       }
     );
   }

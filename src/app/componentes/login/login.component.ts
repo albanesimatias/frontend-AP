@@ -39,6 +39,7 @@ export class LoginComponent implements OnInit {
       this.tokenService.setAuthorities(data.authorities);
       this.roles = data.authorities;
       window.location.reload();
+      mensaje.setAttribute("hidden","true");
     })
     if(!this.isLogged){
       mensaje.removeAttribute("hidden");
