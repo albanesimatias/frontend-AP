@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import { Router } from '@angular/router';
 import { LoginUsuario } from 'src/app/model/login-usuario';
 import { AuthService } from 'src/app/service/auth.service';
 import { TokenService } from 'src/app/service/token.service';
@@ -40,9 +39,8 @@ export class LoginComponent implements OnInit {
       this.roles = data.authorities;
       window.location.reload();
       mensaje.setAttribute("hidden","true");
-    })
-    if(!this.isLogged){
+    }, error => {
       mensaje.removeAttribute("hidden");
-    }
+    })
   }
 }

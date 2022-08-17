@@ -6,8 +6,7 @@ img {
 .habilidad-item {
     position:relative;
     margin: 15px;
-    width: 28%;
-    min-width: 150px;
+    min-width: 100px;
 }
 
 ul {
@@ -16,6 +15,6 @@ ul {
 
 .btn-option {
     position: absolute;
-    right: -8px;
+    right: -24px;
     float: right;
 }
