@@ -11,13 +11,6 @@ import { EditProyectoComponent } from './componentes/proyectos/edit-proyecto-com
 
 const routes: Routes = [
   {path:'', component: HomeComponent},
-  {path:'login', component: LoginComponent},
-  {path:'add-educacion', component: AddEducacionComponent},
-  {path:'edit-educacion/:id', component: EditEducacionComponent},
-  {path:'add-habilidad', component: AddHabilidadComponent},
-  {path:'edit-habilidad/:id', component: EditHabilidadComponent},
-  {path:'add-proyecto', component: AddProyectoComponent},
-  {path:'edit-proyecto/:id', component: EditProyectoComponent},
 ];
 
 @NgModule({

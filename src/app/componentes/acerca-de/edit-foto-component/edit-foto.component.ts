@@ -13,7 +13,7 @@ import { HomeService } from 'src/app/service/home.service';
 export class EditFotoComponent implements OnInit {
 
   perfil: Perfil = new Perfil("","","");
-  imagen : File;
+  imagen : string;
   constructor(private perfilService: PerfilService,  private router: Router, public dialogRef: MatDialogRef<EditFotoComponent>,
                private homeService: HomeService) {}
 
@@ -42,9 +42,5 @@ export class EditFotoComponent implements OnInit {
   cerrar():boolean{
     this.dialogRef.close();
     return false;
-  }
-
-  capturarFile(event: any): any {
-    this.imagen = event.target.files[0];
   }
 }

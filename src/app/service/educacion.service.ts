@@ -7,8 +7,11 @@ import { Educacion } from '../model/educacion';
   providedIn: 'root'
 })
 export class EducacionService {
+  //Local
   eduURL = "http://localhost:8080/educacion/";
-
+  
+  //Remoto Heroku
+  //eduURL = "https://backend-portfolio-alba.herokuapp.com/educacion/";
   constructor(private httpClient: HttpClient) { }
   public lista(): Observable<Educacion[]>{
       return this.httpClient.get<Educacion[]>(this.eduURL+'list');
@@ -18,23 +21,13 @@ export class EducacionService {
     return this.httpClient.get<Educacion>(this.eduURL+ `detail/${id}`);
   }
 
-  public save(educacion: Educacion, file: File): Observable<any>{
-    const formData = new FormData();
-    formData.append('file',file);
-    formData.append('educacion', JSON.stringify(educacion));
-    return this.httpClient.post(this.eduURL+"create",formData);
+  public save(educacion: Educacion): Observable<any>{
+    return this.httpClient.post(this.eduURL+"create", educacion);
   }
 
-  public update(id: number, educacion: Educacion, file: File): Observable<any>{
-    if(file==null){
-      var aFileParts = ['<a id="a"><b id="b">hey!</b></a>'];
-      file = new File(aFileParts,'no-update-foto');
-    }
-    const formData = new FormData();
-    formData.append('id', ''+id);
-    formData.append('educacion', JSON.stringify(educacion));
-    formData.append('file',file);
-    return this.httpClient.put<any>(this.eduURL+'update',formData);
+  public update(id: number, educacion: Educacion): Observable<any>{
+    educacion.id = id;
+    return this.httpClient.put<any>(this.eduURL+'update', educacion);
   }
 
   public delete(id: number): Observable<any>{

@@ -7,8 +7,11 @@ import { Proyecto } from '../model/proyecto';
   providedIn: 'root'
 })
 export class ProyectoService {
-  
+  //Local
   proyectoURL = "http://localhost:8080/proyecto/";
+
+  //Remoto Heroku
+  //proyectoURL = "https://backend-portfolio-alba.herokuapp.com/proyecto/"
   constructor(private httpClient: HttpClient) { }
 
   public lista(): Observable<Proyecto[]>{
@@ -19,23 +22,13 @@ export class ProyectoService {
     return this.httpClient.get<Proyecto>(this.proyectoURL+ `detail/${id}`);
   }
 
-  public save(proyecto: Proyecto, file: File): Observable<any>{
-    const formData = new FormData();
-    formData.append('file',file);
-    formData.append('proyecto', JSON.stringify(proyecto));
-    return this.httpClient.post(this.proyectoURL+"create",formData);
+  public save(proyecto: Proyecto): Observable<any>{
+    return this.httpClient.post(this.proyectoURL+"create",proyecto);
   }
 
-  public update(id: number, proyecto: Proyecto, file: File): Observable<any>{
-    if(file==null){
-      var aFileParts = ['<a id="a"><b id="b">hey!</b></a>'];
-      file = new File(aFileParts,'no-update-foto');
-    }
-    const formData = new FormData();
-    formData.append('id', ''+id);
-    formData.append('proyecto', JSON.stringify(proyecto));
-    formData.append('file',file);
-    return this.httpClient.put(this.proyectoURL+'update', formData);
+  public update(id: number, proyecto: Proyecto): Observable<any>{
+    proyecto.id = id;
+    return this.httpClient.put(this.proyectoURL+'update', proyecto);
   }
 
   public delete(id: number): Observable<any>{

@@ -15,7 +15,6 @@ export class AddEducacionComponent implements OnInit {
   titulo: string = "";
   descripcion: string = "";
   imagen: string = "";
-  file: File;
   constructor(private eduService: EducacionService, public dialogRef: MatDialogRef<AddEducacionComponent>,
     private homeService: HomeService) { }
 
@@ -23,8 +22,8 @@ export class AddEducacionComponent implements OnInit {
   }
 
   onCreate(): void {
-    const edu = new Educacion(this.institucion, this.titulo, this.descripcion, this.imagen);
-    this.eduService.save(edu, this.file).subscribe(
+    const educacion = new Educacion(this.institucion, this.titulo, this.descripcion, this.imagen);
+    this.eduService.save(educacion).subscribe(
       data => {
         console.log("Educacion añadida");
         this.homeService.recargarEducacion();
@@ -39,9 +38,4 @@ export class AddEducacionComponent implements OnInit {
   cerrar():void{
     this.dialogRef.close();
   }
-
-  capturarFile(event: any): any {
-    this.file = event.target.files[0];
-  }
-
 }

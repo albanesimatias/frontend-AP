@@ -12,7 +12,6 @@ import { HomeService } from 'src/app/service/home.service';
 })
 export class EditEducacionComponent implements OnInit {
   educacion: Educacion = new Educacion("","","","");
-  file: File = null;
   id: number;
   constructor(private eduService: EducacionService, public dialogRef: MatDialogRef<EditEducacionComponent>, private homeService: HomeService) { }
 
@@ -28,7 +27,7 @@ export class EditEducacionComponent implements OnInit {
   }
 
   onUpdate(): void {
-    this.eduService.update(this.id,this.educacion, this.file).subscribe(
+    this.eduService.update(this.id,this.educacion).subscribe(
       data => {
         this.homeService.recargarEducacion();
         this.dialogRef.close();
@@ -41,9 +40,5 @@ export class EditEducacionComponent implements OnInit {
 
   cerrar():void{
     this.dialogRef.close();
-  }
-
-  capturarFile(event: any): any {
-    this.file = event.target.files[0];
   }
 }

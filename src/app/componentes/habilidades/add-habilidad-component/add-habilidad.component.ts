@@ -14,7 +14,7 @@ export class AddHabilidadComponent implements OnInit {
   nombre: string = "";
   porcentaje: number = 0;
   imagen: string = "";
-  file: File;
+
   constructor(private habilidadService: HabilidadService,  public dialogRef: MatDialogRef<AddHabilidadComponent>,private homeService: HomeService) { }
 
   ngOnInit(): void {
@@ -22,7 +22,7 @@ export class AddHabilidadComponent implements OnInit {
 
   onCreate(): void {
     const habilidad = new Habilidad(this.nombre, this.porcentaje, this.imagen);
-    this.habilidadService.save(habilidad, this.file).subscribe(
+    this.habilidadService.save(habilidad).subscribe(
       data => {
         console.log("Habilidad añadida");
         this.homeService.recargarHabilidades();
@@ -36,9 +36,4 @@ export class AddHabilidadComponent implements OnInit {
   cerrar():void{
     this.dialogRef.close();
   }
-
-  capturarFile(event: any): any {
-    this.file = event.target.files[0];
-  }
-
 }

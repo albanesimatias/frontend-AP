@@ -13,8 +13,8 @@
             <input type="text" class="form-control" id="descripcion" name="descripcion" [(ngModel)]="educacion.descripcion" required>
         </div>
         <div class="form-group">
-            <label for="file">Seleccione imagen (opcional)</label>
-            <input (change)="capturarFile($event)" type="file" accept="image/*" class="form-control" id="file" name="file" required>
+            <label for="imagen">Pegue la URL de la img</label>
+            <input type="text" class="form-control" id="imagen" name="imagen" [(ngModel)]="educacion.imagen" required>
         </div>
         <button class="btn btn-primary" mat-button (click)="onUpdate()">Actualizar educacion</button>
         <button class="btn btn-primary" mat-button (click)="cerrar()">Cancelar</button>

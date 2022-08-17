@@ -1,8 +1,8 @@
 <div mat-dialog-content>
     <form class="d-flex flex-column" (ngSubmit)="onUpdate()" novalidate #f="ngForm" action="">
         <div class="form-group">
-            <label for="imagen">Seleccione la imagen</label>
-            <input (change)="capturarFile($event)" type="file" class="form-control" accept="image/*" id="imagen" name="imagen" required>
+            <label for="imagen">Pegue la URL de la img</label>
+            <input type="text" class="form-control" id="imagen" name="imagen" [(ngModel)]="imagen" required>
         </div>
         <button class="btn btn-primary">Confirmar</button>
         <button class="btn btn-primary boton-cerrar" mat-button (click)="cerrar()">Cancelar</button>

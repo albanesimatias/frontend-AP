@@ -9,7 +9,11 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class AuthService {
+  //local
   authURL = "http://localhost:8080/auth/";
+  
+  //remoto heroku
+  //authURL = "https://backend-portfolio-alba.herokuapp.com/auth/";
   constructor(private httpClient: HttpClient) { }
 
   public nuevo(nuevoUsuario: NuevoUsuario): Observable<any> {

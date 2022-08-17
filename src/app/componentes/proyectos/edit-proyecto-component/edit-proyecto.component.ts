@@ -12,7 +12,6 @@ import { ProyectoService } from 'src/app/service/proyecto.service';
 })
 export class EditProyectoComponent implements OnInit {
   proyecto : Proyecto = new Proyecto("","","");
-  file: File = null;
   id: number;
   constructor(private proyectoService: ProyectoService, private dialogRef: MatDialogRef<EditProyectoComponent>, private homeService: HomeService) { }
 
@@ -29,7 +28,7 @@ export class EditProyectoComponent implements OnInit {
   }
 
   onUpdate(): void {
-    this.proyectoService.update(this.id,this.proyecto, this.file).subscribe(
+    this.proyectoService.update(this.id,this.proyecto).subscribe(
       data => {
         this.homeService.recargarProyecto();
         this.dialogRef.close();
@@ -43,9 +42,5 @@ export class EditProyectoComponent implements OnInit {
   
   cerrar():void{
     this.dialogRef.close();
-  }
-
-  capturarFile(event: any): any {
-    this.file = event.target.files[0];
   }
 }

@@ -14,7 +14,6 @@ export class AddProyectoComponent implements OnInit {
   nombre: string = "";
   imagen: string = "";
   githublink: string = "";
-  file: File;
   constructor(private proyectoService: ProyectoService, public dialogRef: MatDialogRef<AddProyectoComponent>,private homeService: HomeService) { }
 
   ngOnInit(): void {
@@ -22,7 +21,7 @@ export class AddProyectoComponent implements OnInit {
 
   onCreate(): void {
     const proyecto = new Proyecto(this.nombre, this.imagen, this.githublink);
-    this.proyectoService.save(proyecto, this.file).subscribe(
+    this.proyectoService.save(proyecto).subscribe(
       data => {
         console.log("Proyecto añadido");
         this.homeService.recargarProyecto();
@@ -36,9 +35,5 @@ export class AddProyectoComponent implements OnInit {
 
   cerrar():void{
     this.dialogRef.close();
-  }
-
-  capturarFile(event: any): any {
-    this.file = event.target.files[0];
   }
 }

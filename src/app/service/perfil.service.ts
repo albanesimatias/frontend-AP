@@ -7,8 +7,11 @@ import { Perfil } from '../model/perfil';
   providedIn: 'root'
 })
 export class PerfilService {
-
+  //Local
   perfilURL = "http://localhost:8080/perfil/";
+  
+  //Remoto Heroku
+  //perfilURL = "https://backend-portfolio-alba.herokuapp.com/perfil/";
   constructor(private httpClient: HttpClient) { }
 
   public getPerfil(): Observable<Perfil>{
@@ -23,9 +26,7 @@ export class PerfilService {
     return this.httpClient.put<any>(this.perfilURL+"update-descripcion",descripcion);
   }
 
-  public subir_foto(imagen: File){
-    const formData = new FormData();
-    formData.append('file', imagen);
-    return this.httpClient.post(this.perfilURL+"subir-foto",formData);
+   public subir_foto(imagen: string): Observable<any>{
+    return this.httpClient.post<any>(this.perfilURL+"subir-foto",imagen);
   }
 }

@@ -7,8 +7,11 @@ import { Habilidad } from '../model/habilidad';
   providedIn: 'root'
 })
 export class HabilidadService {
+  //Local
   habilidadURL = "http://localhost:8080/habilidad/";
-  
+
+  //Remoto heroku
+  //habilidadURL = "https://backend-portfolio-alba.herokuapp.com/habilidad/"
   constructor(private httpClient: HttpClient) { }
   public lista(): Observable<Habilidad[]>{
       return this.httpClient.get<Habilidad[]>(this.habilidadURL+'list');
@@ -18,23 +21,13 @@ export class HabilidadService {
     return this.httpClient.get<Habilidad>(this.habilidadURL+ `detail/${id}`);
   }
 
-  public save(habilidad: Habilidad, file: File): Observable<any>{
-    const formData = new FormData();
-    formData.append('file',file);
-    formData.append('habilidad', JSON.stringify(habilidad));
-    return this.httpClient.post(this.habilidadURL+"create",formData);
+  public save(habilidad: Habilidad): Observable<any>{
+    return this.httpClient.post(this.habilidadURL+"create",habilidad);
   }
 
-  public update(id: number, habilidad: Habilidad, file: File): Observable<any>{
-    if(file==null){
-      var aFileParts = ['<a id="a"><b id="b">hey!</b></a>'];
-      file = new File(aFileParts,'no-update-foto');
-    }
-    const formData = new FormData();
-    formData.append('id', ''+id);
-    formData.append('habilidad', JSON.stringify(habilidad));
-    formData.append('file',file);
-    return this.httpClient.put(this.habilidadURL+'update', formData);
+  public update(id: number, habilidad: Habilidad): Observable<any>{
+    habilidad.id = id;
+    return this.httpClient.put(this.habilidadURL+'update', habilidad);
   }
 
   public delete(id: number): Observable<any>{
