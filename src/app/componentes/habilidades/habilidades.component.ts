@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Habilidad } from 'src/app/model/habilidad';
 import { HabilidadService } from 'src/app/service/habilidad.service';
 import { TokenService } from 'src/app/service/token.service';
+import { ConfirmComponent } from '../confirm/confirm.component';
 import { AddHabilidadComponent } from './add-habilidad-component/add-habilidad.component';
 import { EditHabilidadComponent } from './edit-habilidad-component/edit-habilidad.component';
 
@@ -42,12 +43,15 @@ export class HabilidadesComponent implements OnInit {
   }
 
   delete(id:number){
-    if(id != undefined)
-      this.habilidadService.delete(id).subscribe(data => {
-        this.cargarHabilidad();
-      }, err => {
-        alert("error al borrar id");
-      });
+    const dialogRef = this.dialog.open(ConfirmComponent, {maxWidth:'300px', width: '100%'});
+    dialogRef.afterClosed().subscribe( result => {
+      if(id != undefined && result)
+        this.habilidadService.delete(id).subscribe(data => {
+          this.cargarHabilidad();
+        }, err => {
+          alert("error al borrar id");
+        });
+    })
   }
 
 }

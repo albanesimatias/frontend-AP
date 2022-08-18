@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Educacion } from 'src/app/model/educacion';
 import { EducacionService } from 'src/app/service/educacion.service';
 import { TokenService } from 'src/app/service/token.service';
+import { ConfirmComponent } from '../confirm/confirm.component';
 import { AddEducacionComponent } from './add-educacion-component/add-educacion.component';
 import { EditEducacionComponent } from './edit-educacion-component/edit-educacion.component';
 
@@ -41,11 +42,14 @@ export class EducacionComponent implements OnInit {
   }
 
   delete(id:number){
-    if(id != undefined)
-      this.eduService.delete(id).subscribe(data => {
-        this.cargarEducacion();
-      }, err => {
-        alert("error al borrar id");
-      });
+    const dialogRef = this.dialog.open(ConfirmComponent, {maxWidth:'300px', width: '100%'});
+    dialogRef.afterClosed().subscribe(result => {
+      if(id != undefined && result)
+        this.eduService.delete(id).subscribe(data => {
+          this.cargarEducacion();
+        }, err => {
+          alert("error al borrar id");
+        });
+    })
   }
 }

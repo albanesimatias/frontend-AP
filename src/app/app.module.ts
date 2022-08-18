@@ -26,6 +26,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { RecargaDirective } from './directives/recarga.directive';
 import { EditNombreComponent } from './componentes/acerca-de/edit-nombre-component/edit-nombre.component';
 import { EditDescripcionComponent } from './componentes/acerca-de/edit-descripcion-component/edit-descripcion.component';
+import { ConfirmComponent } from './componentes/confirm/confirm.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { EditDescripcionComponent } from './componentes/acerca-de/edit-descripci
     RecargaDirective,
     EditNombreComponent,
     EditDescripcionComponent,
+    ConfirmComponent,
   ],
   imports: [
     BrowserModule,
