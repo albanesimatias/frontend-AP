@@ -8,10 +8,10 @@ import { Perfil } from '../model/perfil';
 })
 export class PerfilService {
   //Local
-  perfilURL = "http://localhost:8080/perfil/";
+  //perfilURL = "http://localhost:8080/perfil/";
   
   //Remoto Heroku
-  //perfilURL = "https://backend-portfolio-alba.herokuapp.com/perfil/";
+  perfilURL = "https://backend-portfolio-alba.herokuapp.com/perfil/";
   constructor(private httpClient: HttpClient) { }
 
   public getPerfil(): Observable<Perfil>{

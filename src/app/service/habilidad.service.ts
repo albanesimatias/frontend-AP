@@ -8,10 +8,10 @@ import { Habilidad } from '../model/habilidad';
 })
 export class HabilidadService {
   //Local
-  habilidadURL = "http://localhost:8080/habilidad/";
+  //habilidadURL = "http://localhost:8080/habilidad/";
 
   //Remoto heroku
-  //habilidadURL = "https://backend-portfolio-alba.herokuapp.com/habilidad/"
+  habilidadURL = "https://backend-portfolio-alba.herokuapp.com/habilidad/"
   constructor(private httpClient: HttpClient) { }
   public lista(): Observable<Habilidad[]>{
       return this.httpClient.get<Habilidad[]>(this.habilidadURL+'list');

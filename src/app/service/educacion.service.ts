@@ -8,10 +8,10 @@ import { Educacion } from '../model/educacion';
 })
 export class EducacionService {
   //Local
-  eduURL = "http://localhost:8080/educacion/";
+  //eduURL = "http://localhost:8080/educacion/";
   
   //Remoto Heroku
-  //eduURL = "https://backend-portfolio-alba.herokuapp.com/educacion/";
+  eduURL = "https://backend-portfolio-alba.herokuapp.com/educacion/";
   constructor(private httpClient: HttpClient) { }
   public lista(): Observable<Educacion[]>{
       return this.httpClient.get<Educacion[]>(this.eduURL+'list');

@@ -8,10 +8,10 @@ import { Proyecto } from '../model/proyecto';
 })
 export class ProyectoService {
   //Local
-  proyectoURL = "http://localhost:8080/proyecto/";
+  //proyectoURL = "http://localhost:8080/proyecto/";
 
   //Remoto Heroku
-  //proyectoURL = "https://backend-portfolio-alba.herokuapp.com/proyecto/"
+  proyectoURL = "https://backend-portfolio-alba.herokuapp.com/proyecto/"
   constructor(private httpClient: HttpClient) { }
 
   public lista(): Observable<Proyecto[]>{
