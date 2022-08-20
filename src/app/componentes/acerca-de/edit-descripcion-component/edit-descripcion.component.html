@@ -1,7 +1,7 @@
 <form mat-dialog-content class="d-flex flex-column justify-content-center" (ngSubmit)="onUpdate()" novalidate #f="ngForm" action="">
     <div class="d-flex flex-column ">
         <label for="descripcion">Descripcion</label>
-        <textarea type="text" class="" [contentEditable]="true" id="descripcion" name="descripcion" [(ngModel)]="descripcion" required></textarea>
+        <textarea type="text" class="texto p-3" [contentEditable]="true" id="descripcion" name="descripcion" [(ngModel)]="descripcion" required></textarea>
     </div>
     <button class="btn btn-primary">Confirmar</button>
     <button class="btn btn-primary boton-cerrar" mat-button (click)="cerrar()">Cancelar</button>

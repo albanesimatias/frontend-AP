@@ -5,6 +5,7 @@
     margin: 35px;
     padding: 40px;
     background-color: rgba(255, 255, 255,1);
+    border-radius: 15px;
 }
 
 .foto-perfil-container {
@@ -18,7 +19,7 @@
 }
 
 .background-texture {
-    background-color: #000;
+    background-color: #010103;
     background-size: fixed;
     background-repeat: repeat;
 }
@@ -86,5 +87,35 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;}
         flex-direction: column;
         align-items: center;
         justify-content: center;
+    }
+    .texto {
+        text-align: center !important;
+    }
+    .titulo{
+        text-align: center !important;
+    }
+    .titulo-2{
+        text-align: center !important;
+    }
+
+    .edu-item{
+        justify-content: center !important;
+    }
+
+    .edu-item_div {
+        flex-direction: column !important;
+    }
+
+    img {
+        margin-right: 0 !important;
+    }
+
+    #acerca-de, #educacion, #habilidad, #proyecto {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    #educacion div, #proyecto div, #habilidad div {
+        justify-content: center !important;
     }
 }

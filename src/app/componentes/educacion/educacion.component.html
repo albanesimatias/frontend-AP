@@ -10,11 +10,13 @@
         </div>
         <ul>
             <li class="d-flex flex-row align-items-center edu-item" *ngFor="let educacion of edu">
-                <img [src]="educacion.imagen" width="100" height="100" alt="">
-                <div>
-                    <h3 class="titulo-2">{{educacion.institucion}}</h3>
-                    <p class="texto">{{educacion.titulo}}</p>
-                    <p class="texto">{{educacion.descripcion}}</p>
+                <div class="d-flex align-items-center edu-item_div">
+                    <img [src]="educacion.imagen" width="100" height="100" alt="">
+                    <div>
+                        <h3 class="titulo-2">{{educacion.institucion}}</h3>
+                        <p class="texto">{{educacion.titulo}}</p>
+                        <p class="texto">{{educacion.descripcion}}</p>
+                    </div>
                 </div>
                 <div class="btn-option d-flex flex-column" *ngIf="isLogged">
                     <button class="btn edit-button" (click)="open_modal_editEdu(educacion.id)">

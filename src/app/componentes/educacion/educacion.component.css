@@ -4,7 +4,6 @@ img {
 }
 
 ul {
-    padding-right: 20px;
     padding-left: 0;
 }
 
@@ -17,14 +16,4 @@ ul {
     position: relative;
     width: 30px;
     left: 10px;
-}
-
-@media (max-width: 480px){
-    .edu-item{
-        flex-direction: column !important;
-    }
-
-    .btn-option{
-        flex-direction: row !important;
-    }
 }
