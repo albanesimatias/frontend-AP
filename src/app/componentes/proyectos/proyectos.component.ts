@@ -1,6 +1,7 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Proyecto } from 'src/app/model/proyecto';
+import { PaqueteService } from 'src/app/service/paquete.service';
 import { ProyectoService } from 'src/app/service/proyecto.service';
 import { TokenService } from 'src/app/service/token.service';
 import { ConfirmComponent } from '../confirm/confirm.component';
@@ -15,10 +16,12 @@ import { EditProyectoComponent } from './edit-proyecto-component/edit-proyecto.c
 export class ProyectosComponent implements OnInit {
   proyectos: Proyecto[] = []
   isLogged = false;
-  constructor(private proyectoService: ProyectoService, private tokenService: TokenService, private render2: Renderer2, private dialog: MatDialog) { }
+  constructor(private proyectoService: ProyectoService, private paqueteService: PaqueteService, private tokenService: TokenService, private render2: Renderer2, private dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.cargarProyectos()
+    this.paqueteService.getPaquete().subscribe(paquete => {
+      this.proyectos = paquete.proyectos;
+    });
     if(this.tokenService.getToken())
       this.isLogged = true;
     else

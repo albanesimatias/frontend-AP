@@ -2,6 +2,7 @@ import { Component, OnInit, Renderer2 } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Educacion } from 'src/app/model/educacion';
 import { EducacionService } from 'src/app/service/educacion.service';
+import { PaqueteService } from 'src/app/service/paquete.service';
 import { TokenService } from 'src/app/service/token.service';
 import { ConfirmComponent } from '../confirm/confirm.component';
 import { AddEducacionComponent } from './add-educacion-component/add-educacion.component';
@@ -15,9 +16,11 @@ import { EditEducacionComponent } from './edit-educacion-component/edit-educacio
 export class EducacionComponent implements OnInit {
   edu: Educacion[] = [];
   isLogged = false;
-  constructor(private eduService: EducacionService, private tokenService: TokenService, private render2: Renderer2, private dialog: MatDialog) { }
+  constructor(private eduService: EducacionService,private paqueteService: PaqueteService , private tokenService: TokenService, private render2: Renderer2, private dialog: MatDialog) { }
   ngOnInit(): void {
-    this.cargarEducacion()
+    this.paqueteService.getPaquete().subscribe(paquete => {
+      this.edu = paquete.educaciones;
+    })
     if(this.tokenService.getToken())
       this.isLogged = true;
     else

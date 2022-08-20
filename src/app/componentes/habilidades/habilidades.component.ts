@@ -2,6 +2,7 @@ import { Component, OnInit, Renderer2 } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Habilidad } from 'src/app/model/habilidad';
 import { HabilidadService } from 'src/app/service/habilidad.service';
+import { PaqueteService } from 'src/app/service/paquete.service';
 import { TokenService } from 'src/app/service/token.service';
 import { ConfirmComponent } from '../confirm/confirm.component';
 import { AddHabilidadComponent } from './add-habilidad-component/add-habilidad.component';
@@ -15,10 +16,12 @@ import { EditHabilidadComponent } from './edit-habilidad-component/edit-habilida
 export class HabilidadesComponent implements OnInit {
   habilidades: Habilidad[] = []
   isLogged = false;
-  constructor(private habilidadService: HabilidadService, private tokenService: TokenService, private render2: Renderer2, private dialog: MatDialog) { }
+  constructor(private habilidadService: HabilidadService, private paqueteService: PaqueteService, private tokenService: TokenService, private render2: Renderer2, private dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.cargarHabilidad()
+    this.paqueteService.getPaquete().subscribe(paquete => {
+      this.habilidades = paquete.habilidades;
+    });
     if(this.tokenService.getToken())
       this.isLogged = true;
     else

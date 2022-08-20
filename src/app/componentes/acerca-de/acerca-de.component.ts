@@ -7,6 +7,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { EditNombreComponent } from './edit-nombre-component/edit-nombre.component';
 import { EditDescripcionComponent } from './edit-descripcion-component/edit-descripcion.component';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+import { PaqueteService } from 'src/app/service/paquete.service';
 @Component({
   selector: 'app-acerca-de',
   templateUrl: './acerca-de.component.html',
@@ -17,14 +18,16 @@ export class AcercaDeComponent implements OnInit {
   @ViewChild('asDescripcion') refDescripcion: ElementRef;
   perfil: Perfil = new Perfil("","","");
   isLogged = false;
-  constructor(private dialog: MatDialog,private perfilService: PerfilService,private tokenService: TokenService,
-     private render2: Renderer2, private sanitizer: DomSanitizer) {
-    this.perfilService = perfilService;
-    this.tokenService = tokenService;
-  }
+  constructor(private dialog: MatDialog,private perfilService: PerfilService, private paqueteService: PaqueteService,private tokenService: TokenService,
+     private render2: Renderer2, private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
-    this.cargarPerfil();
+    this.paqueteService.getPaquete().subscribe(paquete => {
+      this.perfil = paquete.perfil;
+      this.perfil.descripcion = this.perfil.descripcion.replace(/(\r\n|\n|\r)/gm, "<br>")
+      this.render2.setProperty(this.refDescripcion.nativeElement,'innerHTML',this.perfil.descripcion);
+    });
+
     if(this.tokenService.getToken())
     this.isLogged = true;
     else
