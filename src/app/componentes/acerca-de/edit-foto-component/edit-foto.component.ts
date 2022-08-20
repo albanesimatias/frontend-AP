@@ -34,7 +34,7 @@ export class EditFotoComponent implements OnInit {
         this.homeService.recargaPerfil = !this.homeService.recargaPerfil;
         this.cerrar();
       }, err => {
-        console.log("Error al actualizar");
+        console.log("Error al actualizar foto");
       }
     )
   }

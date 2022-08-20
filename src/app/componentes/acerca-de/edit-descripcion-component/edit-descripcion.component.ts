@@ -18,7 +18,7 @@ export class EditDescripcionComponent implements OnInit {
       data => {
         this.descripcion = data.descripcion;
       }, err => {
-        alert("Error al actualizar");
+        console.log("Error al cargar perfil");
       }
       )
     }
@@ -30,7 +30,7 @@ export class EditDescripcionComponent implements OnInit {
         this.homeService.recargaPerfil = !this.homeService.recargaPerfil;
         this.cerrar();
       }, err => {
-        alert("No se puedo actualizar la descripcion");
+        alert("No se pudo actualizar la descripcion");
       }
     )
   }
