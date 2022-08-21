@@ -18,3 +18,8 @@ ul {
     right: -24px;
     float: right;
 }
+
+.texto {
+    width: 120px;
+    text-align: center;
+}
