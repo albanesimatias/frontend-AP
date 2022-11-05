@@ -38,16 +38,19 @@
     margin: 5px !important;
     margin-bottom: 10px !important;
     font-size: 30px !important;
+    color: #fff;
 }
 
 .titulo-2 {
     margin: 5px !important;
     font-size: 25px !important;
+    color: #fff;
 }
 
 .texto {
     font-size: 20px !important;
     margin: 5px !important;
+    color: #fff;
 }
 
 .form-group {
